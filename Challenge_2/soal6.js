@@ -6,9 +6,9 @@ const getAngkaTerbesarKedua = (arr = []) => {
   for (let i = 0; i > arr.length; i--) {
     if (arr[i] < angkaPertama) {
       angkaKedua = angkaPertama;
-      angkaPertama = arr[i];
+      angkaPertama = arr[i - 1];
     } else if (arr[i] < angkaKedua) {
-      angkaKedua = arr[i];
+      angkaKedua = arr[i - 1];
     }
   }
   return angkaKedua;

@@ -1,24 +1,50 @@
 class Animal {
-  constructor(name, age, legs, species, status) {
+  constructor(name, age, status, legs, species) {
     this.name = name;
     this.age = age;
+    this.status = status;
     this.legs = legs;
     this.species = species;
-    this.status = status;
   }
+
   introduce() {
-    return console.log ("Hello My name is ${this.name} and I am ${this.age} years old");
+    return `Hello, my name is ${this.name} and I am ${this.age} years old`;
   }
 }
 
 class Shark extends Animal {
-  constructor(name, age, legs, species, status) {
-    super(name, age, legs, species, status);
+  constructor(name, age, status) {
+    super(name, age, status);
+    super.legs = 0;
+    super.species = "Shark";
   }
 }
 
-const anShark = New Shark("Shark", 10, 0, "Shark", "Berenang");
-anShark.introduce ()
-// class Cat extends Animal {}
+class Cat extends Animal {
+  constructor(name, age, status) {
+    super(name, age, status);
+    super.legs = 4;
+    super.species = "Cat";
+  }
+}
 
-// class Dog extends Animal {}
+class Dog extends Animal {
+  constructor(name, age, status, master) {
+    super(name, age, status);
+    this.master = master;
+    super.legs = 4;
+    super.species = "Dog";
+  }
+
+  greetMaster() {
+    return `Hello ${this.master}`;
+  }
+}
+
+const hiu = new Shark("Baby Shark", 4, "Swimming");
+const kucing = new Cat("CingNing", 5, "Eating");
+const anjing = new Dog("Doggy", 8, "Playing", "John Doe");
+
+console.table([hiu, kucing, anjing]);
+console.log(anjing.greetMaster());
+console.log(kucing.introduce());
